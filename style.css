@@ -212,7 +212,7 @@ section{
     background: #aed4e5; 
 }
 
-.project-grid{
+.projects-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: 2rem;
