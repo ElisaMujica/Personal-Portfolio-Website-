@@ -25,3 +25,13 @@ document.addEventListener('DOMContentLoaded',function(){
         });    
     });
 });
+
+document.addEventListener('DOMContentLoaded',function(){
+
+    const projectButtons = document.querySelectorAll('.btn');
+    projectButtons.forEach(button => {
+        button.addEventListener('click' ,() => {
+            window.open(button.dataset.link,'_blank','noopener');
+        });    
+    });
+});
