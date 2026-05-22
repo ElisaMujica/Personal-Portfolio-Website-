@@ -268,7 +268,7 @@ section{
     font-size: 3rem;
 }
 .input-box input::placeholder{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 .input{
     position: relative;
