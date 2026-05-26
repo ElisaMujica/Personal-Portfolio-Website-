@@ -6,17 +6,6 @@ menuIcon.onclick = () => {
 }
 
 document.addEventListener('DOMContentLoaded',function(){
-    console.log('page loaded');
-
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    const visitBtn = document.querySelector('.visit-btn');
-    visitBtn.addEventListener('click', () => {
-        window.open(visitBtn.dataset.link,'_blank','noopener');
-    });
-});
-
-document.addEventListener('DOMContentLoaded',function(){
 
     const socialIcons = document.querySelectorAll('.socials i');
     socialIcons.forEach(icon => {
@@ -39,10 +28,35 @@ document.addEventListener('DOMContentLoaded',function(){
 const contactBtn = document.getElementById("contactBtn")
     contactBtn.addEventListener("click", () => {
         try{
-            navigator.clipboard.writeText("elisa.m.mujica@gmail.con")
+            navigator.clipboard.writeText("elisa.m.mujica@gmail.com")
             alert("Elisa Mujica's email copied to clipboard")
         }catch(error){
             alert("Failed to copy to clipboard")
         }
     })
+
+const form = document.querySelector('form');
+const successMessage =
+document.getElementById('success-message');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+        await fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type':
+                'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(formData).toString()
+        });
+        successMessage.innerText =
+        'Thanks! I will contact you soon.';
+        form.reset();
+    } catch (error) {
+        successMessage.innerText =
+        'Something went wrong.';
+    }
+});
+
 
