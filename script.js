@@ -28,10 +28,21 @@ document.addEventListener('DOMContentLoaded',function(){
 
 document.addEventListener('DOMContentLoaded',function(){
 
-    const projectButtons = document.querySelectorAll('.btn');
+    const projectButtons = document.querySelectorAll('[data-link]');
     projectButtons.forEach(button => {
         button.addEventListener('click' ,() => {
             window.open(button.dataset.link,'_blank','noopener');
         });    
     });
 });
+
+const contactBtn = document.getElementById("contactBtn")
+    contactBtn.addEventListener("click", () => {
+        try{
+            navigator.clipboard.writeText("elisa.m.mujica@gmail.con")
+            alert("Elisa Mujica's email copied to clipboard")
+        }catch(error){
+            alert("Failed to copy to clipboard")
+        }
+    })
+
