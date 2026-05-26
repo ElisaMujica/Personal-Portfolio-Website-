@@ -119,11 +119,17 @@
     <section id="contact" class="contact">
         <div class="input-box">
             <h2 class="section-title">Contact Me</h2>
-            <div class="input">
-                <input type="text" placeholder="elisa.m.mujica@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div class="btn">Submit</div>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p hidden> <input name="bot-field"></p>
+                <div class="input">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="btn">Submit</button>
+                <p id="success-message"></p>
+        </form>
         </div> 
     </section>
 
